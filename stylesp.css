@@ -1,0 +1,419 @@
+*{
+    box-sizing: border-box;
+    margin : 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar{
+    background: #131313;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem; /* 1 rem sama dengan 16 pixel secara default*/
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar__container{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;   
+}
+
+.navbar__logo h1{
+    background-color: #ffff;
+    background-image: linear-gradient(to left, #ec5b30 0%,#f5c2b3 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+.logo img {
+    width: 100px;
+    height: auto;
+}
+.navbar__logo h2{
+    background-color: #ffff;
+    background-image: linear-gradient(to left, #ec5b30 0%,#f5c2b3 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+
+.fa-gem{
+    margin-right: 0.5 rem;
+}
+
+.navbar__menu{
+    display: flex;
+    align-items: items;
+    list-style: none;
+    text-align: center;
+}
+.navbar__item{
+    height: 80px;
+}
+
+.navbar__links{
+    color : #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    transition: color 0.3s ease;
+}
+.navbar__links:hover {
+    color: #f77062;
+    transform: scale(1.1); /* Memperbesar sedikit saat hover */
+    transition: all 0.3s ease; /* Transisi untuk semua properti */
+}
+
+.navbar__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius:4px ;
+    background: #f77862;
+    color : #fff;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover{
+    background : #4837ff;
+    transition: all 0.3s ease;
+    transform: scale(1.05);
+}
+.navbar__links:hover{
+    color: #f77062;
+    transition: all 0.3s ease
+}
+
+/*buat responsif */
+@media screen and (max-width: 960px) {
+    .navbar__container{
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+        background: #131313;
+    }
+
+    .navbar__menu{
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute ;
+        top: -1000px;
+        opacity: 0;
+        transition: all 0.5s ease;
+        height: 80vh;
+        z-index: -1;
+        background: #131313;
+       
+    }
+    
+
+    .navbar__menu.active{
+        background: #131313;
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 50vh;
+        font-size: 1.6rem;
+    
+    }
+
+    #navbar__logo{
+        padding-left: 25px;
+    }
+
+    #navbar__subtitle{
+        padding-left: 40px;
+    }
+
+    .navbar__toggle .bar{
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #fff;
+        
+    }
+
+    .navbar__item{
+        width: 100%;
+    }
+    .navbar__links{
+        text-align: center;
+        padding: 2rem;
+        width:100%;
+        display: table;
+    }
+
+    #mobile-menu{
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+    
+    .navbar__btn{
+        padding-bottom: 2rem;
+    }
+
+    .button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 100px;
+        margin: 0;
+    }
+
+    .navbar__toggle .bar{
+        display: block;
+        cursor: pointer;
+    }
+    #mobile-menu.is-active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(1){
+        transform: translate(8px) translate(45deg);
+    }
+
+    
+    #mobile-menu.is-active .bar:nth-child(3){
+        transform: translate(-8px) translate(-45deg);
+    }    
+}
+
+/* General Section Styles */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+    color: #333;
+    border-radius: 10px;  /* Rounded corners for smoother look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Slight shadow */
+    margin-bottom: 60px;  /* Create space between sections */
+    opacity: 0;  /* Start invisible for animation */
+    transform: translateY(20px);  /* Start with slight downward translation */
+    transition: all 0.5s ease-out;  /* Transition for smooth animation */
+}
+
+.section.show {
+    opacity: 1;  /* Fade-in */
+    transform: translateY(0);  /* Reset translation to normal position */
+}
+
+/* Container to center content */
+.section__container {
+    background: black;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sejarah Pancasila Section */
+#sejarah-pancasila {
+    background-color: #f5f7fa;  /* Light grey-blue background */
+    border: 4px solid #ec5b30;  /* Orange border */
+}
+
+#sejarah-pancasila h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ec5b30;  /* Match header color with the border */
+}
+
+#sejarah-pancasila p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Pancasila dan Korupsi Section */
+#pancasila-korupsi {
+    background-color: #fff0f0;  /* Light red background */
+    border: 4px solid #f77862;  /* Bright red-orange border */
+}
+
+#pancasila-korupsi h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #f77862;  /* Match header color with the border */
+}
+
+#pancasila-korupsi p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Implementasi Pancasila Section (Dark Background) */
+#implementasi-pancasila {
+    background-color: #202020;  /* Dark grey background */
+    border: 4px solid #4837ff;  /* Blue border */
+}
+
+#implementasi-pancasila h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#implementasi-pancasila p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+/* Quiz Section */
+#kuis {
+    background-color: #e0f7fa;  /* Light cyan background */
+    border: 4px solid #4837ff;  /* Blue border */
+}
+
+#kuis h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #4837ff;  /* Match header color with the border */
+}
+
+#kuis p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+#kuis .button {
+    background-color: #4837ff;
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+#kuis .button:hover {
+    background-color: #f77862;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Call to Action (CTA) Section */
+.section--cta {
+    background-color: #fdd835;  /* Bright yellow background */
+    border: 4px solid #f77862;  /* Bright red-orange border */
+    color: #fff;
+}
+
+.section--cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.section--cta p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.section--cta a.button {
+    background-color: #fff;
+    color: #f77862;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.section--cta a.button:hover {
+    background-color: #4837ff;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Responsive Section Adjustments */
+@media screen and (max-width: 960px) {
+    .section {
+        padding: 60px 10px;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .section p {
+        font-size: 1.1rem;
+    }
+
+    .section--cta h2 {
+        font-size: 2rem;
+    }
+
+    .section--cta p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation for each section when it enters the viewport */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
